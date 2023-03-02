@@ -2,6 +2,8 @@ import './App.scss';
 import {useState} from 'react';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
+import HeroInfo from './components/HeroInfo/HeroInfo';
+import CommentList from './components/CommentList/CommentList';
 import Avatar from './assets/Images/Mohan-muruge.jpg';
 import videoData from './data/video-details.json'
 
@@ -9,33 +11,14 @@ import videoData from './data/video-details.json'
 
 function App() {
 
-  const [data, setData] = useState(videoData);
-  console.log(videoData);
+  const [data] = useState(videoData[0]);
 
   return (
     <>
     <Header />
-    <Hero />
-    <main>
-      <div className="rating">
-        <h1 className="rating__header">BMX Rampage: 2021 Highlights</h1>
-        <div className="rating__container">
-          <div className="rating__date-title">
-            <p className="rating__item rating__item--bold">By Red Crow</p>
-            <p className="rating__item">07/11/2021</p>
-          </div>
-          <div className="rating__view-likes">
-            <p className="rating__item">1,001,023</p>
-              <p className="rating__item">110,985</p>
-            </div>
-        </div>
-      </div>
-      <section className="article">
-        <p>
-          On a gusty day in Southern Utah, a group of 25 daring mountain bikers blew the doors off what is possible on two wheels, unleashing some of the biggest moments the sport has ever seen. While mother nature only allowed for one full run before the conditions made it impossible to ride, that was all that was needed for event veteran Kyle Strait, who won the event for the second time -- eight years after his first Red Cow Rampage title
-          </p>
-          <p className="article__comment">3 comments</p>
-      </section>
+    <Hero poster={data.image} />
+    <HeroInfo heroVideo={data} />
+      <p className="article__comment">3 comments</p>
       <section className="conversation" >
         <img 
           className="conversation__avatar" 
@@ -57,8 +40,7 @@ function App() {
         >comment</button>
         </form>
         </section>
-        <ul className="conversation__list" ></ul>
-        </main>
+        <CommentList />
     </>
   );
 }

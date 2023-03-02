@@ -21,34 +21,34 @@ ul {
   list-style: none;
 }
 
-.rating {
-  &__header {
-    padding: 1rem;
-    line-height: 2rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-  &__container{
-    border-top: solid 1px $Mercury;
-    display: flex;
-    justify-content: flex-start;
-    padding: 1rem;
-  }
-  &__date-title {
-    width: 13rem;
-  }
-  &__item {
-    font-size: 0.813rem;
-    color: $Silver;
-    line-height: 1.125rem;
-    margin: 0.2rem 0;
-    width: 50%;
-    &--bold {
-      color: black;
-      font-weight: bold;
-    }
-  }
-}
+// .rating {
+//   &__header {
+//     padding: 1rem;
+//     line-height: 2rem;
+//     font-size: 1.5rem;
+//     font-weight: 600;
+//   }
+//   &__container{
+//     border-top: solid 1px $Mercury;
+//     display: flex;
+//     justify-content: flex-start;
+//     padding: 1rem;
+//   }
+//   &__date-title {
+//     width: 13rem;
+//   }
+//   &__item {
+//     font-size: 0.813rem;
+//     color: $Silver;
+//     line-height: 1.125rem;
+//     margin: 0.2rem 0;
+//     width: 50%;
+//     &--bold {
+//       color: black;
+//       font-weight: bold;
+//     }
+//   }
+// }
 
 .article {
   padding: 1rem;

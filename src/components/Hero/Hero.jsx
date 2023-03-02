@@ -1,12 +1,10 @@
+import './Hero.scss';
 
-
-
-function Hero(props){
+const Hero = function (props) {
     return (
         <section className="hero">
       <video 
-    controls poster="https://i.imgur.com/l2Xfgpl.jpg"
-    src="https://project-2-api.herokuapp.com/stream">
+    controls poster={props.poster}>
     </video>
     </section>
     )

@@ -1,0 +1,84 @@
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.header {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include tablet {
+      padding: 0 2rem;
+    }
+    &__container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      @include tablet {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  
+    &__form {
+      width: 100%;
+      @include tablet {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1.5rem;
+      }
+    }
+    &__input {
+      @include button;
+      background-image: url(../../assets/Icons/search.svg);
+      padding: 0.5rem 2rem;
+      width: 100%;
+      border: 1px solid $Mercury;
+      font-size: 0.813rem;
+      @include tablet {
+        width: 15rem;
+        height: 2.5rem;
+      }
+    } 
+    &__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 0;
+      gap: 0.5rem;
+    }
+    &__avatar {
+      @include avatar;
+      @include tablet {
+        display: none;
+      }
+      &-2 {
+        display: none;
+        @include tablet{
+          display: inline-block;
+          @include avatar;
+        }
+        
+      }
+    }
+    &__btn {
+      @include button;
+      text-transform: uppercase;
+      font-size: 0.813rem;
+      background-image: url(../../assets/Icons/upload.svg);
+      background-size: 1.3rem;
+      height: 2.5rem;
+      width: 100%;
+      border: none;
+      color: $White;
+      background-color: $BrainFlix-blue;
+      @include tablet {
+        width: 27%;
+      }
+      @include desktop {
+        width: 9rem;
+      }
+    }
+  }

@@ -1,46 +1,38 @@
 import './App.scss';
 import {useState} from 'react';
+import videoData from './data/video-details.json'
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import HeroInfo from './components/HeroInfo/HeroInfo';
+import CommentForm from './components/CommentForm/CommentForm'
 import CommentList from './components/CommentList/CommentList';
-import Avatar from './assets/Images/Mohan-muruge.jpg';
-import videoData from './data/video-details.json'
+import VideoList from './components/VideoList/VideoList';
+
 
 
 
 function App() {
 
-  const [data] = useState(videoData[0]);
+  const [data] = useState(videoData);
+  const [selectedVideo, setSelectedVideo] = useState(videoData[0])
 
+  const handleVideoClick = (id) => {
+    const foundVideo = data.find((video) => video.id === id)
+    setSelectedVideo(foundVideo)
+  }
   return (
     <>
     <Header />
-    <Hero poster={data.image} />
-    <HeroInfo heroVideo={data} />
-      <p className="article__comment">3 comments</p>
-      <section className="conversation" >
-        <img 
-          className="conversation__avatar" 
-          src={Avatar} 
-          alt="avatar" />    
-      <form className="conversation__form">
-        <label className="conversation__title">join the conversation</label>
-        <textarea
-          className="conversation__box"
-          placeholder="Add a new comment"
-          name="comment"
-          id="comment"
-          cols="30"
-          rows="5"
-        ></textarea>
-        <button 
-          className="conversation__button" 
-          type="submit"
-        >comment</button>
-        </form>
-        </section>
-        <CommentList />
+    <Hero poster={selectedVideo.image} />
+    <HeroInfo activeVideo={selectedVideo} />
+    <CommentForm />
+    <CommentList 
+    commentData={selectedVideo.comments}/>
+    <VideoList 
+    videoData={data}
+    selectedVideo={selectedVideo}
+    handleVideoClick={handleVideoClick}
+    />
     </>
   );
 }

@@ -1,13 +1,14 @@
 import './Hero.scss';
 
-const Hero = function (props) {
+const Hero = function (singleVideo, handleVideoClick) {
     return (
-        <section className="hero">
+        <section  onClick={()=>{handleVideoClick(singleVideo.id)}} >
       <video 
-    controls poster={props.poster}>
+      className="hero"
+      poster={singleVideo.poster} 
+      controls>
     </video>
     </section>
     )
 }
-
 export default Hero;

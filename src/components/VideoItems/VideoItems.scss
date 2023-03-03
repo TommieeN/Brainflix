@@ -1,0 +1,22 @@
+
+.video__img {
+    width: 6.25rem;
+    height: 6.25rem;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.video__list-item {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+    gap: 1rem;
+}
+
+.video__container {
+    width: 100%;
+}
+
+.video__title {
+    padding-bottom: 0.5rem;
+}

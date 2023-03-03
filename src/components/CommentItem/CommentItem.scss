@@ -1,4 +1,35 @@
-.conversation__comment-avatar {
-    width: 2rem;
-    height: 2rem;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.conversation {
+    font-weight: 600;
+    justify-content: flex-start;
+    &__item {
+        display: flex;
+        gap: 1rem;
+        padding-bottom: 0.5rem;
+        margin: 0.5rem 0;
+        border-bottom: 1px solid $Mercury;
+        &:first-child {
+            border-top: 1px solid $Mercury;
+        }
+    }
+    &__comment-avatar {
+        @include avatar;
+        margin-top: 1rem;
+    }
+    &__container {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem 0;
+    }
+    &__name-date {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+    }
+    &__name {
+        font-weight: 600;
+    }
 }

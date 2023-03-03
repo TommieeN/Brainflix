@@ -1,0 +1,10 @@
+@use "../../styles/partials/variables";
+
+.video {
+    padding: 0 1rem;
+    &__header {
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+}

@@ -1,3 +1,8 @@
+@use "../../styles/partials/mixins" as *;
+
 .conversation__list {
     padding: 1rem;
+    @include tablet {
+        padding: 0 2rem;
+    }
 }

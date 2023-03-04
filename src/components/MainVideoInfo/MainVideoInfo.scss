@@ -1,13 +1,15 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 .main-info {
-
   @include tablet {
     padding: 0 1rem;
   }
     &__header {
       padding: 1rem 0;
       margin: 0 1rem;
+      line-height: 2rem;
+      font-size: 1.5rem;
+      font-weight: 600;
       border-bottom: solid 1px $Mercury;
       @include tablet {
         font-size: 2.063rem;
@@ -16,9 +18,10 @@
       }
     }
     &__container {
-      padding: 1rem;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
+      padding: 1rem 0;
+      margin: 0 1rem;
       @include tablet {
         justify-content: space-between;
         border-bottom: solid 1px $Mercury;
@@ -26,43 +29,59 @@
         margin: 0 1rem;
       }
     }
-    &__date-title {
+    &__channel-date {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1rem;
+      flex-direction: column;
+      gap: 0.5rem;
       @include tablet {
-        display: flex;
+        flex-direction: row;
         gap: 2rem;
       }
     }
-    &__views{
-      background: url(../../assets/Icons/views.svg);
-      background-repeat: no-repeat;
-      padding-left: 2rem;
-      color: $Silver;
-    }
-    &__dates {
-      color: $Silver;
-      width: 50%;
-    }
-    &__likes {
-      background: url(../../assets/Icons/likes.svg);
-      background-repeat: no-repeat;
-      padding-left: 2rem;
-      color: $Silver;
-    }
     &__item {
       color: $Silver;
-      width: 50%;
+      width: auto;
       @include tablet {
         margin: 0;
       }
       &--bold {
         color: black;
         font-weight: bold;
-      }  
+      }
     }
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-right: 4rem;
+      @include tablet {
+        flex-direction: row;
+        margin: 0;
+        gap: 1rem;
+      }
+    }
+    &__date {
+      color: $Silver;
+    }
+    &__views {
+      background: url(../../assets/Icons/views.svg);
+      background-position: 0% 60%;
+      background-repeat: no-repeat;
+      padding-left: 2rem;
+      color: $Silver;
+
+    }
+    &__likes {
+      background: url(../../assets/Icons/likes.svg);
+      background-position: 0% 60%;
+      background-repeat: no-repeat;
+      padding-left: 2rem;
+      color: $Silver;
+      @include tablet {
+        padding-left: 1.5rem;
+      }
+    }
+    
     &__description {
       padding: 1rem 0;
       margin: 0 1rem;

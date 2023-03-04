@@ -1,10 +1,20 @@
-@use "../../styles/partials/variables";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .video {
     padding: 0 1rem;
+    @include tablet {
+        padding: 0 2rem;
+    }
     &__header {
+        color: $Silver;
         text-transform: uppercase;
         font-size: 0.9rem;
         margin-bottom: 1.5rem;
+        @include tablet {
+            padding-top: 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
     }
 }

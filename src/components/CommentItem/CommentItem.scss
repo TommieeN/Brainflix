@@ -4,6 +4,9 @@
 .conversation {
     font-weight: 600;
     justify-content: flex-start;
+    @include tablet {
+        padding: 0 2rem;
+    }
     &__item {
         display: flex;
         gap: 1rem;

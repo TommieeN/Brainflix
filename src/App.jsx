@@ -2,8 +2,8 @@ import './App.scss';
 import {useState} from 'react';
 import videoData from './data/video-details.json'
 import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import HeroInfo from './components/HeroInfo/HeroInfo';
+import Hero from './components/MainVideo/MainVideo';
+import HeroInfo from './components/MainVideoInfo/MainVideoInfo';
 import CommentForm from './components/CommentForm/CommentForm'
 import CommentList from './components/CommentList/CommentList';
 import VideoList from './components/VideoList/VideoList';

@@ -1,5 +1,6 @@
 import './CommentItem.scss';
 import Avatar from '../../assets/Images/Mohan-muruge.jpg';
+import {timeStampConverter} from "../../Utilities/TimeConverter"
 
 const CommentItem = function ({name, time, comment}) {
     return (
@@ -11,7 +12,7 @@ const CommentItem = function ({name, time, comment}) {
             <div className="conversation__container">
                 <div className='conversation__name-date'>
                     <p className="conversation__name">{name}</p>
-                    <p className="conversation__date">{time}</p>
+                    <p className="conversation__date">{timeStampConverter(time)}</p>
                 </div>
                 <p className="conversation__comment" >{comment}</p>
             </div>          

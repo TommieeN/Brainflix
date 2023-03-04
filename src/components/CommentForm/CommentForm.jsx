@@ -4,8 +4,6 @@ import Avatar from '../../assets/Images/Mohan-muruge.jpg';
 function CommentForm () {
     return (
         <>
-        
-      
         <div className="conversation">
           <p className="conversation__comment-number">3 Comments</p>
         </div>
@@ -15,6 +13,7 @@ function CommentForm () {
           src={Avatar} 
           alt="avatar" />    
       <form className="conversation__form">
+        <div className="conversation__title-box-container">
         <label className="conversation__title">join the conversation</label>
         <textarea
           className="conversation__box"
@@ -24,6 +23,7 @@ function CommentForm () {
           cols="30"
           rows="5"
         ></textarea>
+        </div>
         <button 
           className="conversation__button" 
           type="submit"

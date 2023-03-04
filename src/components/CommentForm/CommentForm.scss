@@ -7,6 +7,9 @@
     justify-content: center;
     gap: 1rem;
     padding: 0 1rem;
+    @include tablet {
+      padding: 1rem;
+    }
     &__box {
       border: solid 2px $Mercury;
       border-radius: 4px;

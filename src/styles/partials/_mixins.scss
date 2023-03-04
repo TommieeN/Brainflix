@@ -20,6 +20,12 @@
     object-fit:cover;
 }
 
+@mixin main-info-logo {
+    background-repeat: no-repeat;
+    padding-left: 2rem;
+    color: $Silver;
+}
+
 @mixin button {
     background-repeat: no-repeat;
     background-position: 5px center;

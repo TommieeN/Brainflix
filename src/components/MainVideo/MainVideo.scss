@@ -1,0 +1,11 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.main-video {
+    object-fit: cover;
+    @include tablet {
+      object-fit: contain;
+      padding: 0 2rem;
+      background: $BrainFlix-DarkBlack;
+    }
+  }

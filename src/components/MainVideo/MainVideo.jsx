@@ -1,14 +1,14 @@
-import './Hero.scss';
+import './MainVideo.scss';
 
-const Hero = function (singleVideo, handleVideoClick) {
+const MainVideo = function (singleVideo, handleVideoClick) {
     return (
         <section  onClick={()=>{handleVideoClick(singleVideo.id)}} >
       <video 
-      className="hero"
+      className="main-video"
       poster={singleVideo.poster} 
       controls>
     </video>
     </section>
     )
 }
-export default Hero;
+export default MainVideo;

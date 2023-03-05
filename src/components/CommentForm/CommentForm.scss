@@ -1,6 +1,6 @@
-@use '../../styles/partials/fonts' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/mixins' as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 .conversation {
     &__wrapper {
       display: flex;
@@ -11,6 +11,10 @@
         padding: 1rem 2rem;
         justify-content: flex-start;
         align-items: center;
+      }
+      @include desktop {
+        padding: 1rem 0;
+        gap: 2rem;
       }
     }
     &__form {
@@ -27,10 +31,11 @@
       }
     }
     &__box {
-      border: solid 2px $Mercury;
+      border: solid 1px $Mercury;
       border-radius: 4px;
       resize: none;
       color: $BrainFlix-Black;
+      background: $Alablaster;
       font-family: "Avenir Next";
       height: 6rem;
       margin: 0;
@@ -38,6 +43,9 @@
       @include tablet {
         height: 2.5rem;
         width: 29rem;
+      }
+      @include desktop {
+        width: 26rem;
       }
     }
     &__title {
@@ -68,6 +76,10 @@
         height: 2.3rem;
         margin-top: 1.4rem;
         align-items: center;
+      }
+      @include desktop {
+        margin-right: 1rem;
+        width: 25%;
       }
     } 
 }

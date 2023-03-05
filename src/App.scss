@@ -35,6 +35,21 @@ ul {
   color: $BrainFlix-DarkBlack;
 }
 
+.app-container {
+  @include desktop {
+    display: flex;
+    margin: 0 8.6rem;
+  }
+}
+
+.app-wrapper {
+  @include desktop {
+    width: 70%;
+    border-right: 1px solid $Mercury;
+  }
+  
+}
+
 .conversation {
   display: flex;
   justify-content: center;

@@ -1,11 +1,14 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .conversation {
     font-weight: 600;
     justify-content: flex-start;
     @include tablet {
         padding: 0 2rem;
+    }
+    @include desktop {
+        padding: 0;
     }
     &__item {
         display: flex;
@@ -16,6 +19,16 @@
         &:first-child {
             border-top: 1px solid $Mercury;
         }
+        &:last-child {
+            @include desktop {
+                border: none;
+            }
+        }
+    }
+    &__comment {
+        @include desktop {
+            padding: 0 2rem;
+        }
     }
     &__comment-avatar {
         @include avatar;
@@ -25,12 +38,18 @@
         display: flex;
         flex-direction: column;
         padding: 0.5rem 0;
+        @include desktop {
+            padding: 1.3rem 0;
+        }
     }
     &__name-date {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         padding: 0.5rem 0;
+        @include desktop {
+            padding: 0 2rem;
+        }
     }
     &__name {
         font-weight: 600;

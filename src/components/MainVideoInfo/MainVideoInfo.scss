@@ -1,8 +1,11 @@
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/mixins' as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 .main-info {
   @include tablet {
     padding: 0 1rem;
+  }
+  @include desktop {
+    padding: 0;
   }
     &__header {
       padding: 1rem 0;
@@ -16,6 +19,9 @@
         font-weight: 700;
         border: none;
       }
+      @include desktop {
+        margin: 0;
+      }
     }
     &__container {
       display: flex;
@@ -27,6 +33,10 @@
         border-bottom: solid 1px $Mercury;
         padding-bottom: 0.5rem;
         margin: 0 1rem;
+      }
+      @include desktop {
+        margin: 0;
+        padding-right: 2rem;
       }
     }
     &__channel-date {
@@ -90,6 +100,9 @@
         padding: 2rem;
         border: none;
         margin: 0;
+      }
+      @include desktop {
+        padding: 2rem 1rem 2rem 0;
       }
     &__comment {
     padding-top: 1rem;

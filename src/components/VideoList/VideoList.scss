@@ -6,6 +6,9 @@
     @include tablet {
         padding: 0 2rem;
     }
+    @include desktop {
+        padding: 0 1rem;
+    }
     &__header {
         color: $Silver;
         text-transform: uppercase;

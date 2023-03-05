@@ -1,4 +1,4 @@
-import './VideoItems.scss';
+import "./VideoItems.scss";
 
 function VideoItem({ singleVideo, handleVideoClick }) {
   return (
@@ -8,7 +8,11 @@ function VideoItem({ singleVideo, handleVideoClick }) {
         handleVideoClick(singleVideo.id);
       }}
     >
-      <img className="video__img" src={singleVideo.image} alt="video-list-item" />
+      <img
+        className="video__img"
+        src={singleVideo.image}
+        alt="video-list-item"
+      />
       <div className="video__container">
         <p className="video__title">{singleVideo.title}</p>
         <p className="video__channel">{singleVideo.channel}</p>

@@ -71,6 +71,7 @@
       margin-top: 1rem;
       height: 2rem;
       width: 100%;
+      cursor: pointer;
       @include tablet {
         width: 29%;
         height: 2.3rem;
@@ -80,6 +81,9 @@
       @include desktop {
         margin-right: 1rem;
         width: 25%;
+      }
+      &:hover {
+        background-color: $BrainFlix-DarkBlue;
       }
     } 
 }

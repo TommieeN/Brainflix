@@ -1,33 +1,53 @@
-@use 'variables';
+@use "./variables";
+
+
 
 @mixin tablet {
-    @media (min-width: variables.$tablet-breakpoint) {
-        @content;
-    }
+  @media (min-width: variables.$tablet-breakpoint) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media (min-width: variables.$desktop-breakpoint) {
-        @content;
-    }
+  @media (min-width: variables.$desktop-breakpoint) {
+    @content;
+  }
 }
 
 @mixin avatar {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    object-position: left;
-    object-fit:cover;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-position: left;
+  object-fit: cover;
 }
 
 @mixin main-info-logo {
-    background-repeat: no-repeat;
-    padding-left: 2rem;
-    color: $Silver;
+  background-repeat: no-repeat;
+  padding-left: 2rem;
+  color: $Silver;
 }
 
 @mixin button {
-    background-repeat: no-repeat;
-    background-position: 5px center;
-    border-radius: 0.3rem;
+  background-repeat: no-repeat;
+  background-position: 5px center;
+  border-radius: 0.3rem;
+  
+}
+
+@mixin blue-button {
+  background-size: 1.3rem;
+  height: 2.5rem;
+  width: 100%;
+  border: none;
+  color: $White;
+  background-color: $BrainFlix-blue;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
 }

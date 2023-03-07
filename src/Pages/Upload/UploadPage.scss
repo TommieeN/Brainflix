@@ -1,0 +1,162 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+
+
+.heading {
+  padding: 1rem 1rem 0;
+  border-top: 1px solid $Mercury;
+  @include tablet {
+    padding: 2rem 2rem 0;
+  }
+  @include desktop {
+    padding: 3rem 8rem 0;
+  }
+}
+
+.upload {
+  margin: 1rem;
+  @include tablet {
+    margin: 2rem;
+  }
+  @include desktop {
+    margin: 2rem 8rem;
+    display: flex;
+    border-top: 1px solid $Mercury;
+  }
+  &__desktop-wrap {
+    @include desktop {
+        display: flex;
+        flex-direction: column;
+        width: 32%;
+    }
+  }
+  &__text {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $Silver;
+    margin-bottom: 0.1rem;
+    @include tablet {
+        font-size: 0.75rem;
+        border-top: 1px solid $Mercury;
+        padding-top: 2rem;
+    }
+    @include desktop {
+        border: none;
+    }
+  }
+  &__thumbnail {
+    width: 100%;
+    border-radius: 4px;
+    @include tablet {
+        width: 50%;
+    }
+    @include desktop {
+        width: 100%;
+    }
+  }
+  &__container {
+    @include tablet {
+        padding-bottom: 0.5rem;
+    }
+    @include desktop {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        width: 68%;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    @include desktop {
+        justify-content: center;
+        width: 100%;
+        margin-left: 1.5rem;
+        justify-content: flex-end;
+    }
+  }
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    @include desktop {
+        margin-bottom: 1.5rem;
+    }
+  }
+  &__label {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $Silver;
+    margin-bottom: 0.2rem;
+    margin-top: 0.5rem;
+  }
+  &__input {
+    border: solid 1px $Mercury;
+    border-radius: 4px;
+    color: $BrainFlix-Black;
+    background-color: $Alablaster;
+    height: 2.5rem;
+    padding-left: 1rem;
+  }
+  &__box {
+    font-family: "Avenir Next";
+    border: solid 1px $Mercury;
+    border-radius: 4px;
+    color: $BrainFlix-Black;
+    background-color: $Alablaster;
+    resize: none;
+    height: 5rem;
+    padding: 0.5rem 1rem;
+  }
+  &__button-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    @include tablet {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 4.5rem;
+        margin: 2rem;
+        border-top: 1px solid $Mercury;
+    }
+    @include desktop {
+        margin: 2rem 8rem;
+    }
+  }
+  &__submit {
+    background-size: 1.3rem;
+    height: 2.5rem;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    color: $White;
+    background-color: $BrainFlix-blue;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.74rem;
+    font-weight: 600;
+    margin: 1.5rem 0;
+    background-image: url(../../assets/Icons/publish.svg);
+    @include button;
+    @include tablet {
+        order: 1;
+        width: 22%;
+    }
+    @include desktop {
+        width: 15%;
+    }
+  }
+  &__cancel {
+    color: $BrainFlix-blue;
+    text-transform: uppercase;
+    font-size: 0.74rem;
+    font-weight: 600;
+    border: none;
+    background: $White;
+    margin: 0.5rem;
+    @include tablet {
+    }
+  }
+}

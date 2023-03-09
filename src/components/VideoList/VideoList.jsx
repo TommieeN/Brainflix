@@ -1,6 +1,5 @@
 import "./VideoList.scss";
 import VideoItems from "../VideoItems/VideoItems";
-// import { Link } from "react-router-dom";
 
 function VideoList({ videoData, id }) {
   return (
@@ -11,7 +10,6 @@ function VideoList({ videoData, id }) {
           {videoData
             .filter((video) => video.id !== id)
             .map((video) => (
-              // <Link key={video.id} to={`/videos/${video.id}` }>
                 <VideoItems
                   key={video.id}
                   filtered={video}

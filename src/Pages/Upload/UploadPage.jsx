@@ -1,8 +1,42 @@
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UploadLogo from "../../assets/Images/Upload-video-preview.jpg";
 import "./UploadPage.scss";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Upload() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  const handleChangeTitle = (event) => {
+    setTitle(event.target.value);
+  };
+  const handleChangeDescription = (event) => {
+    setDescription(event.target.value);
+  };
+
+  const isFormValid = () => {
+    if (title === "" || description === "") {
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (isFormValid()) {
+      alert("Thank you for uploading!");
+      handleOnClickHome();
+    } else {
+      alert("Please check your form.");
+    }
+  };
+
+  const navigate = useNavigate();
+  const handleOnClickHome = function () {
+    navigate("/");
+  };
+
   return (
     <div>
       <h1 className="heading">Upload Video</h1>
@@ -16,27 +50,25 @@ function Upload() {
           />
         </div>
         <div className="upload__container">
-          <form className="upload__form">
+          <form onSubmit={handleSubmit} className="upload__form">
             <div className="upload__wrap">
-              <label className="upload__label">
-                title your video
-              </label>
+              <label className="upload__label">title your video</label>
               <input
                 className="upload__input"
                 placeholder="Add a title to your video"
                 type="text"
-                id="title"
                 name="title"
+                onChange={handleChangeTitle}
+                value={title}
               />
             </div>
-            <label className="upload__label">
-              add a video description
-            </label>
+            <label className="upload__label">add a video description</label>
             <textarea
               className="upload__box"
               placeholder="Add a description to your video"
               name="description"
-              id="description"
+              onChange={handleChangeDescription}
+              value={description}
               cols="30"
               rows="5"
             ></textarea>
@@ -44,10 +76,18 @@ function Upload() {
         </div>
       </div>
       <div className="upload__button-wrapper">
-        <button className="upload__submit" type="submit">
+        <button
+          onClick={handleSubmit}
+          className="upload__submit"
+          type="submit"
+        >
           publish
         </button>
-        <button className="upload__cancel" type="submit">
+        <button
+          onClick={handleOnClickHome}
+          className="upload__cancel"
+          type="button"
+        >
           cancel
         </button>
       </div>

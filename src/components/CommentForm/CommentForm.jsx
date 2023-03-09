@@ -1,12 +1,12 @@
 import "./CommentForm.scss";
 import Avatar from "../../assets/Images/Mohan-muruge.jpg";
 
-function CommentForm(props) {
+function CommentForm({commentNum}) {
   return (
     <>
       <div className="conversation">
         <p className="conversation__comment-number">
-          {props.commentArr.length} Comments
+          {commentNum.comments.length} Comments
         </p>
       </div>
       <section className="conversation__wrapper">

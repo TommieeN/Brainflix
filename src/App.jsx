@@ -1,8 +1,8 @@
 import "./App.scss";
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Header from "./components/Header/Header";
 import HomePage from "./Pages/HomePage/HomePage";
-import Upload from "./Pages/Upload/UploadPage";
+import UploadPage from "./Pages/Upload/UploadPage";
 
 function App() {
   return (
@@ -10,7 +10,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage/>} />
-        <Route path="/upload" element={<Upload/>} />      
+        <Route path="/home" element={<Navigate to="/"/> } />
+        <Route path="/videos" element={<HomePage />} />
+        <Route path="/videos/:videoId" element={<HomePage />} />
+        <Route path="/upload" element={<UploadPage/>} />      
       </Routes>
     </BrowserRouter>
   );

@@ -1,15 +1,11 @@
 import "./MainVideo.scss";
 
-const MainVideo = function (singleVideo, handleVideoClick) {
+const MainVideo = function ({poster}) {
   return (
-    <section
-      onClick={() => {
-        handleVideoClick(singleVideo.id);
-      }}
-    >
+    <section>
       <video
         className="main-video"
-        poster={singleVideo.poster}
+        poster={poster}
         controls
       ></video>
     </section>

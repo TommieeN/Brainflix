@@ -16,24 +16,24 @@ function Upload() {
           />
         </div>
         <div className="upload__container">
-          <form class="upload__form">
-            <div class="upload__wrap">
-              <label class="upload__label" for="name">
+          <form className="upload__form">
+            <div className="upload__wrap">
+              <label className="upload__label">
                 title your video
               </label>
               <input
-                class="upload__input"
+                className="upload__input"
                 placeholder="Add a title to your video"
                 type="text"
                 id="title"
                 name="title"
               />
             </div>
-            <label class="upload__label" for="description">
+            <label className="upload__label">
               add a video description
             </label>
             <textarea
-              class="upload__box"
+              className="upload__box"
               placeholder="Add a description to your video"
               name="description"
               id="description"
@@ -44,10 +44,10 @@ function Upload() {
         </div>
       </div>
       <div className="upload__button-wrapper">
-        <button class="upload__submit" type="submit">
+        <button className="upload__submit" type="submit">
           publish
         </button>
-        <button class="upload__cancel" type="submit">
+        <button className="upload__cancel" type="submit">
           cancel
         </button>
       </div>

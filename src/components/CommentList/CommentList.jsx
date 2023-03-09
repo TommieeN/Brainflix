@@ -1,20 +1,22 @@
 import CommentItem from "../CommentItem/CommentItem";
 import "./CommentList.scss";
 
-function CommentList(props) {
+
+function CommentList({ commentArr }) {
   return (
     <ul className="conversation__list">
-      {props.commentData.map((comment) => (
-        <CommentItem
-          id={comment.id}
-          key={comment.id}
-          name={comment.name}
-          comment={comment.comment}
-          time={comment.timestamp}
+      {commentArr &&
+      commentArr.map((comment) => (
+        <CommentItem 
+        key={comment.id}
+        name={comment.name}
+        time={comment.timestamp}
+        comment={comment.comment}
         />
       ))}
     </ul>
   );
 }
+
 
 export default CommentList;

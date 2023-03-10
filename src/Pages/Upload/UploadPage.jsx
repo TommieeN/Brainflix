@@ -41,55 +41,60 @@ function Upload() {
     <div>
       <h1 className="heading">Upload Video</h1>
       <div className="upload">
-        <div className="upload__desktop-wrap">
-          <p className="upload__text">video thumbnail</p>
-          <img
-            className="upload__thumbnail"
-            src={UploadLogo}
-            alt="person-riding-bike"
-          />
-        </div>
         <div className="upload__container">
+          <p className="upload__text">video thumbnail</p>
           <form onSubmit={handleSubmit} className="upload__form">
-            <div className="upload__wrap">
-              <label className="upload__label">title your video</label>
-              <input
-                className="upload__input"
-                placeholder="Add a title to your video"
-                type="text"
-                name="title"
-                onChange={handleChangeTitle}
-                value={title}
+            <div className="upload__desktop-wrap">
+              <img
+                className="upload__thumbnail"
+                src={UploadLogo}
+                alt="person-riding-bike"
               />
+            
+            <div className="upload__form-wrapper">
+              <div className="upload__form-wrap">
+                <div className="upload__wrap">
+                  <label className="upload__label">title your video</label>
+                  <input
+                    className="upload__input"
+                    placeholder="Add a title to your video"
+                    type="text"
+                    name="title"
+                    onChange={handleChangeTitle}
+                    value={title}
+                  />
+                </div>
+                <label className="upload__label">add a video description</label>
+                <textarea
+                  className="upload__box"
+                  placeholder="Add a description to your video"
+                  name="description"
+                  onChange={handleChangeDescription}
+                  value={description}
+                  cols="30"
+                  rows="5"
+                ></textarea>
+              </div>
             </div>
-            <label className="upload__label">add a video description</label>
-            <textarea
-              className="upload__box"
-              placeholder="Add a description to your video"
-              name="description"
-              onChange={handleChangeDescription}
-              value={description}
-              cols="30"
-              rows="5"
-            ></textarea>
+            </div>
+            <div className="upload__button-wrapper">
+              <button
+                onClick={handleSubmit}
+                className="upload__submit"
+                type="submit"
+              >
+                publish
+              </button>
+              <button
+                onClick={handleOnClickHome}
+                className="upload__cancel"
+                type="button"
+              >
+                cancel
+              </button>
+            </div>
           </form>
         </div>
-      </div>
-      <div className="upload__button-wrapper">
-        <button
-          onClick={handleSubmit}
-          className="upload__submit"
-          type="submit"
-        >
-          publish
-        </button>
-        <button
-          onClick={handleOnClickHome}
-          className="upload__cancel"
-          type="button"
-        >
-          cancel
-        </button>
       </div>
     </div>
   );

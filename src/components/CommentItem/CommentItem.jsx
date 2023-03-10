@@ -1,9 +1,23 @@
 import "./CommentItem.scss";
 import { timeStampConverter } from "../../Utilities/TimeConverter";
 
-const CommentItem = function ({ name, time, comment }) {
+const CommentItem = function ({
+  name,
+  time,
+  comment,
+  videoId,
+  handleOnClickDelete,
+}) {
   return (
     <li className="conversation__item">
+      <button
+        className="conversation__delete-btn"
+        onClick={() => {
+          handleOnClickDelete(videoId);
+        }}
+      >
+        <span className="conversation__delete-btn-vertical">remove</span>
+      </button>
       <img
         className="conversation__comment-avatar"
         src="https://via.placeholder.com/150/e1e1e1/e1e1e1.jpg"

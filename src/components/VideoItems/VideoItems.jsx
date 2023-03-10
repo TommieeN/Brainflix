@@ -1,9 +1,9 @@
 import "./VideoItems.scss";
 import { Link } from "react-router-dom";
 
-function VideoItem({ title, channel, image, filtered}) {
+function VideoItem({ title, channel, image, filtered, onClick}) {
   return (
-    <li className="video__list-item">
+    <li className="video__list-item" onClick={onClick} >
       <Link key={filtered.id} to={`/videos/${filtered.id}` }>
       <img
         className="video__img"

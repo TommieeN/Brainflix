@@ -1,7 +1,7 @@
 import "./VideoList.scss";
 import VideoItems from "../VideoItems/VideoItems";
 
-function VideoList({ videoData, id }) {
+function VideoList({ videoData, id, onClick }) {
   return (
     <section className="video">
       <div className="video__container">
@@ -17,8 +17,8 @@ function VideoList({ videoData, id }) {
                   title={video.title}
                   channel={video.channel}
                   image={video.image}
+                  onClick={onClick}
                 />
-              //</Link> 
             ))}
         </ul>
       </div>

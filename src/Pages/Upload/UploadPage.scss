@@ -147,6 +147,9 @@
     font-weight: 600;
     margin: 1.5rem 0;
     background-image: url(../../assets/Icons/publish.svg);
+    &:hover {
+      background-color: $BrainFlix-DarkBlue
+    }
     @include button;
     @include tablet {
         order: 1;

@@ -14,6 +14,7 @@ function Upload() {
     setDescription(event.target.value);
   };
 
+  //check for form validation
   const isFormValid = () => {
     if (title === "" || description === "") {
       return false;
@@ -21,9 +22,11 @@ function Upload() {
     return true;
   };
 
+  //prevent default behaviour after submitting
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    //alert based on validation
     if (isFormValid()) {
       alert("Thank you for uploading!");
       handleOnClickHome();
@@ -32,6 +35,7 @@ function Upload() {
     }
   };
 
+  //navigate back to home after submitting
   const navigate = useNavigate();
   const handleOnClickHome = function () {
     navigate("/");
@@ -50,9 +54,7 @@ function Upload() {
                 src={UploadLogo}
                 alt="person-riding-bike"
               />
-            
-            <div className="upload__form-wrapper">
-              <div className="upload__form-wrap">
+              <div className="upload__form-wrapper">
                 <div className="upload__wrap">
                   <label className="upload__label">title your video</label>
                   <input
@@ -64,18 +66,21 @@ function Upload() {
                     value={title}
                   />
                 </div>
-                <label className="upload__label">add a video description</label>
-                <textarea
-                  className="upload__box"
-                  placeholder="Add a description to your video"
-                  name="description"
-                  onChange={handleChangeDescription}
-                  value={description}
-                  cols="30"
-                  rows="5"
-                ></textarea>
+                <div className="upload__form-wrap">
+                  <label className="upload__label">
+                    add a video description
+                  </label>
+                  <textarea
+                    className="upload__box"
+                    placeholder="Add a description to your video"
+                    name="description"
+                    onChange={handleChangeDescription}
+                    value={description}
+                    cols="30"
+                    rows="5"
+                  ></textarea>
+                </div>
               </div>
-            </div>
             </div>
             <div className="upload__button-wrapper">
               <button

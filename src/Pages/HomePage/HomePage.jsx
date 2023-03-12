@@ -17,6 +17,7 @@ function HomePage() {
   const [isNewVideoSelected, setIsNewVideoSelected] = useState(false);
   const { videoId } = useParams();
 
+  //render items once
   useEffect(() => {
     getVideos();
   }, []);
@@ -46,7 +47,6 @@ function HomePage() {
   const handleVideoClick = useCallback(() => {
     setIsNewVideoSelected(true);
   }, []);
-
   useEffect(() => {
     if (isNewVideoSelected) {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -54,7 +54,6 @@ function HomePage() {
     }
   }, [isNewVideoSelected]);
 
-  
   //fetch video data based on id
   useEffect(() => {
     let id = videoId || videoList[0]?.id;
@@ -75,8 +74,7 @@ function HomePage() {
     if (event.target.comment.value !== "") {
       axios
         .post(`${api}/videos/${selectedVideo.id}/comments${apiKey}`, newComment)
-        .then((response) => {
-          console.log("response1", response);
+        .then(() => {
           getVideo(selectedVideo.id);
         })
         .catch((error) => {
@@ -93,12 +91,10 @@ function HomePage() {
       .delete(
         `${api}/videos/${selectedVideo.id}/comments/${commentId}${apiKey}`
       )
-      .then((response) => {
+      .then(() => {
         getVideo(selectedVideo.id);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
 
   return (
@@ -123,7 +119,11 @@ function HomePage() {
           )}
         </div>
         {selectedVideo && videoList && (
-          <VideoList videoData={videoList} id={selectedVideo.id} onClick={handleVideoClick}/>
+          <VideoList
+            videoData={videoList}
+            id={selectedVideo.id}
+            onClick={handleVideoClick}
+          />
         )}
       </div>
     </>

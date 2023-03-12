@@ -52,7 +52,7 @@
         width: 50%;
     }
     @include desktop {
-      width: 31%;
+      width: 32%;
     }
   }
   &__container {
@@ -68,13 +68,14 @@
     flex-direction: column;
     @include desktop {
       display: flex;
-      gap: 1.5rem;
     }
   }
    &__form-wrapper {
       @include desktop{
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
         width: 66%;
       }     
     }
@@ -89,7 +90,7 @@
     flex-direction: column;
     padding: 1rem 0;
     @include desktop {
-        margin-bottom: 1.5rem;
+      padding: 0;
     }
   }
   &__label {
@@ -99,6 +100,9 @@
     color: $Silver;
     margin-bottom: 0.2rem;
     margin-top: 0.5rem;
+    @include desktop {
+      margin: 0;
+    }
   }
   &__input {
     border: solid 1px $Mercury;
@@ -126,7 +130,7 @@
         flex-direction: row;
         justify-content: flex-end;
         gap: 4.5rem;
-        margin: 2rem 0;
+        margin: 1rem 0;
         border-top: 1px solid $Mercury;
     }
     @include desktop {

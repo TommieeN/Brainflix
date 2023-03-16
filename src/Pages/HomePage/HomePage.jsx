@@ -8,8 +8,8 @@ import CommentForm from "../../components/CommentForm/CommentForm";
 import CommentList from "../../components/CommentList/CommentList";
 import VideoList from "../../components/VideoList/VideoList";
 
-export const api = "https://project-2-api.herokuapp.com";
-const apiKey = "?api_key=3880642c-78bd-4166-9c71-5b43ffa6c39d";
+const URL = "http://localhost:8080";
+
 
 function HomePage() {
   const [videoList, setVideoList] = useState([]);
@@ -25,7 +25,7 @@ function HomePage() {
   //getting video list
   function getVideos() {
     axios
-      .get(`${api}/videos${apiKey}`)
+      .get(`${URL}/videos`)
       .then((response) => {
         setVideoList(response.data);
         setIsNewVideoSelected(true);
@@ -36,7 +36,7 @@ function HomePage() {
   //getting selected video data
   const getVideo = useCallback((videoId) => {
     axios
-      .get(`${api}/videos/${videoId}${apiKey}`)
+      .get(`${URL}/videos/${videoId}`)
       .then((res) => {
         setSelectedVideo(res.data);
       })
@@ -73,7 +73,7 @@ function HomePage() {
     //if text box is empty alert error
     if (event.target.comment.value !== "") {
       axios
-        .post(`${api}/videos/${selectedVideo.id}/comments${apiKey}`, newComment)
+        .post(`${URL}/videos/${selectedVideo.id}/comments`, newComment)
         .then(() => {
           getVideo(selectedVideo.id);
         })
@@ -89,7 +89,7 @@ function HomePage() {
   const handleOnClickDelete = function (commentId) {
     axios
       .delete(
-        `${api}/videos/${selectedVideo.id}/comments/${commentId}${apiKey}`
+        `${URL}/videos/${selectedVideo.id}/comments/${commentId}$`
       )
       .then(() => {
         getVideo(selectedVideo.id);

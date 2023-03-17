@@ -10,7 +10,6 @@ import VideoList from "../../components/VideoList/VideoList";
 
 const URL = "http://localhost:8080";
 
-
 function HomePage() {
   const [videoList, setVideoList] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -30,7 +29,9 @@ function HomePage() {
         setVideoList(response.data);
         setIsNewVideoSelected(true);
       })
-      .catch(() => {});
+      .catch((error) => {
+        console.log(error)
+      });
   }
 
   //getting selected video data
@@ -40,13 +41,16 @@ function HomePage() {
       .then((res) => {
         setSelectedVideo(res.data);
       })
-      .catch(() => {});
+      .catch((error) => {
+        console.log(error)
+      });
   }, []);
 
   //window scroll for video list
   const handleVideoClick = useCallback(() => {
     setIsNewVideoSelected(true);
   }, []);
+  
   useEffect(() => {
     if (isNewVideoSelected) {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -88,13 +92,14 @@ function HomePage() {
   //delete function
   const handleOnClickDelete = function (commentId) {
     axios
-      .delete(
-        `${URL}/videos/${selectedVideo.id}/comments/${commentId}$`
-      )
-      .then(() => {
+      .delete(`${URL}/videos/${selectedVideo.id}/comments/${commentId}`)
+      .then((response) => {
+        console.log("response: ", response)
         getVideo(selectedVideo.id);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

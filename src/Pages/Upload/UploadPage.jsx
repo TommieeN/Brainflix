@@ -1,11 +1,14 @@
+import axios from "axios";
 import UploadLogo from "../../assets/Images/Upload-video-preview.jpg";
 import "./UploadPage.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+const URL = "http://localhost:8080";
 
 function Upload() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  // const [image, setImage] = useState("");
 
   const handleChangeTitle = (event) => {
     setTitle(event.target.value);
@@ -14,7 +17,7 @@ function Upload() {
     setDescription(event.target.value);
   };
 
-  //check for form validation
+  //FORM VALIDATION
   const isFormValid = () => {
     if (title === "" || description === "") {
       return false;
@@ -22,20 +25,31 @@ function Upload() {
     return true;
   };
 
-  //prevent default behaviour after submitting
-  const handleSubmit = (event) => {
+  //PREVENT DEFAULT BEHAVIOUR AFTER SUBMIT
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    //alert based on validation
+    //ALERT BASED ON VALIDATION
     if (isFormValid()) {
-      alert("Thank you for uploading!");
-      handleOnClickHome();
+      try {
+        const response = await axios.post(`${URL}/videos`, {
+          title,
+          description,
+          image: `${URL}/videos/images/image0.jpeg`,
+        });
+        console.log(response.data);
+        alert("Thank you for uploading!");
+        handleOnClickHome();
+      } catch (error) {
+        console.log(error);
+        alert("Error uploading video");
+      }
     } else {
       alert("Please check your form.");
     }
   };
 
-  //navigate back to home after submitting
+  //NAVIGATE TO HOME AFTER SUBMISSION
   const navigate = useNavigate();
   const handleOnClickHome = function () {
     navigate("/");

@@ -11,54 +11,41 @@ import VideoList from "../../components/VideoList/VideoList";
 const URL = "http://localhost:8080";
 
 function HomePage() {
+  const { videoId } = useParams();
   const [videoList, setVideoList] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
-  const [isNewVideoSelected, setIsNewVideoSelected] = useState(false);
-  const { videoId } = useParams();
 
-  //render items once
+  // GET VIDEO DATA AND STORE IN VIDEOLIST STATE
   useEffect(() => {
-    getVideos();
-  }, []);
-
-  //getting video list
-  function getVideos() {
     axios
       .get(`${URL}/videos`)
       .then((response) => {
-        setVideoList(response.data);
-        setIsNewVideoSelected(true);
+        const videoArr = response.data;
+        setVideoList(videoArr);
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       });
-  }
+  }, []);
 
-  //getting selected video data
+  //GETTING SELECTED VIDEO DATA
   const getVideo = useCallback((videoId) => {
     axios
       .get(`${URL}/videos/${videoId}`)
       .then((res) => {
         setSelectedVideo(res.data);
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       });
   }, []);
-
-  //window scroll for video list
-  const handleVideoClick = useCallback(() => {
-    setIsNewVideoSelected(true);
-  }, []);
   
-  useEffect(() => {
-    if (isNewVideoSelected) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      setIsNewVideoSelected(false);
-    }
-  }, [isNewVideoSelected]);
 
-  //fetch video data based on id
+  //FETCH VIDEO WITH ID
   useEffect(() => {
     let id = videoId || videoList[0]?.id;
     if (id) {
@@ -66,16 +53,17 @@ function HomePage() {
     }
   }, [videoList, getVideo, videoId]);
 
-  //comment submit
+  //COMMENT SUBMIT & NEW COMMENT OBJECT
   const handleOnSubmit = (event) => {
-    //newcomment object
+    event.preventDefault();
+    const { comment } = event.target
     const newComment = {
       name: "Nigel",
-      comment: event.target.comment.value,
+      comment: comment.value,
     };
 
-    //if text box is empty alert error
-    if (event.target.comment.value !== "") {
+    //IF TEXT BOX IS EMPTY ALERT
+    if (comment.value !== "") {
       axios
         .post(`${URL}/videos/${selectedVideo.id}/comments`, newComment)
         .then(() => {
@@ -89,12 +77,12 @@ function HomePage() {
     }
   };
 
-  //delete function
+  //DELETE FUNCTION
   const handleOnClickDelete = function (commentId) {
     axios
       .delete(`${URL}/videos/${selectedVideo.id}/comments/${commentId}`)
       .then((response) => {
-        console.log("response: ", response)
+        console.log("response: ", response);
         getVideo(selectedVideo.id);
       })
       .catch((error) => {
@@ -124,11 +112,7 @@ function HomePage() {
           )}
         </div>
         {selectedVideo && videoList && (
-          <VideoList
-            videoData={videoList}
-            id={selectedVideo.id}
-            onClick={handleVideoClick}
-          />
+          <VideoList videoData={videoList} id={selectedVideo.id} />
         )}
       </div>
     </>

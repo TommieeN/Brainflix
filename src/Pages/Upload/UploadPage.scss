@@ -2,8 +2,6 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
-
-
 .heading {
   padding: 1rem 1rem 0;
   border-top: 1px solid $Mercury;
@@ -26,9 +24,9 @@
   }
   &__desktop-wrap {
     @include desktop {
-        display: flex;
-        gap: 1.5rem;
-        justify-content: space-between;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: space-between;
     }
   }
   &__text {
@@ -37,19 +35,19 @@
     color: $Silver;
     margin-bottom: 0.1rem;
     @include tablet {
-        font-size: 0.75rem;
-        border-top: 1px solid $Mercury;
-        padding-top: 2rem;
+      font-size: 0.75rem;
+      border-top: 1px solid $Mercury;
+      padding-top: 2rem;
     }
     @include desktop {
-        border: none;
+      border: none;
     }
   }
   &__thumbnail {
     width: 100%;
     border-radius: 4px;
     @include tablet {
-        width: 50%;
+      width: 50%;
     }
     @include desktop {
       width: 32%;
@@ -57,10 +55,9 @@
   }
   &__container {
     @include tablet {
-        padding-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
     }
     @include desktop {
-
     }
   }
   &__form {
@@ -70,21 +67,21 @@
       display: flex;
     }
   }
-   &__form-wrapper {
-      @include desktop{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 1rem;
-        width: 66%;
-      }     
+  &__form-wrapper {
+    @include desktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 66%;
     }
-   &__form-wrap {
-      @include desktop {
-        display: flex;
-        flex-direction: column;
-      } 
+  }
+  &__form-wrap {
+    @include desktop {
+      display: flex;
+      flex-direction: column;
     }
+  }
   &__wrap {
     display: flex;
     flex-direction: column;
@@ -127,11 +124,11 @@
     display: flex;
     flex-direction: column;
     @include tablet {
-        flex-direction: row;
-        justify-content: flex-end;
-        gap: 4.5rem;
-        margin: 1rem 0;
-        border-top: 1px solid $Mercury;
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: 4.5rem;
+      margin: 1rem 0;
+      border-top: 1px solid $Mercury;
     }
     @include desktop {
       margin: 2rem 0;
@@ -152,15 +149,15 @@
     margin: 1.5rem 0;
     background-image: url(../../assets/Icons/publish.svg);
     &:hover {
-      background-color: $BrainFlix-DarkBlue
+      background-color: $BrainFlix-DarkBlue;
     }
     @include button;
     @include tablet {
-        order: 1;
-        width: 22%;
+      order: 1;
+      width: 22%;
     }
     @include desktop {
-        width: 15%;
+      width: 15%;
     }
   }
   &__cancel {

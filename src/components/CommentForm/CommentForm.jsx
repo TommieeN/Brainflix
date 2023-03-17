@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import "./CommentForm.scss";
 import Avatar from "../../assets/Images/Mohan-muruge.jpg";
 
-function CommentForm({commentNum, handleOnSubmit}) {
-
+function CommentForm({ commentNum, handleOnSubmit }) {
   const [comment, setComment] = useState("");
 
-  //clear text field and prevent default behaviour after submitting
+  //PREVENT DEFAULT BEHAVIOUR AND CLEAR TEXT FIELD AFTER SUBMISSION
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleOnSubmit(event)
-    setComment("")
+    handleOnSubmit(event);
+    setComment("");
   };
 
   return (

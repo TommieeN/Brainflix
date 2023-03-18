@@ -15,7 +15,7 @@ function HomePage() {
   const [videoList, setVideoList] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
-  // GET VIDEO DATA AND STORE IN VIDEOLIST STATE
+  //GET VIDEO DATA AND STORE IN VIDEOLIST STATE
   useEffect(() => {
     axios
       .get(`${URL}/videos`)
@@ -28,7 +28,7 @@ function HomePage() {
       });
   }, []);
 
-  // GETTING SELECTED VIDEO DATA
+  //GETTING SELECTED VIDEO DATA
   const getVideo = useCallback((videoId, scrollToTop) => {
     axios
       .get(`${URL}/videos/${videoId}`)
@@ -46,6 +46,7 @@ function HomePage() {
       });
   }, []);
 
+  //FETCH VIDEO DATA ON MOUNT
   useEffect(() => {
     let id = videoId || videoList[0]?.id;
     if (id) {
@@ -53,7 +54,7 @@ function HomePage() {
     }
   }, [videoId, videoList, getVideo]);
 
-  // COMMENT SUBMIT & NEW COMMENT OBJECT
+  //COMMENT SUBMIT & NEW COMMENT OBJECT
   const handleOnSubmit = (event) => {
     event.preventDefault();
     const { comment } = event.target;
@@ -62,7 +63,7 @@ function HomePage() {
       comment: comment.value,
     };
 
-    // IF TEXT BOX IS EMPTY ALERT
+    //IF TEXT BOX IS EMPTY ALERT
     if (comment.value !== "") {
       axios
         .post(`${URL}/videos/${selectedVideo.id}/comments`, newComment)
@@ -77,7 +78,7 @@ function HomePage() {
     }
   };
 
-  // DELETE FUNCTION
+  //DELETE FUNCTION
   const handleOnClickDelete = function (commentId) {
     axios
       .delete(`${URL}/videos/${selectedVideo.id}/comments/${commentId}`)

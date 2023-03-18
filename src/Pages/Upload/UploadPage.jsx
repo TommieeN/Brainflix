@@ -9,6 +9,7 @@ function Upload() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+  // UPDATE DESCRIPTION & TITLE STATE VARIABLE
   const handleChangeTitle = (event) => {
     setTitle(event.target.value);
   };

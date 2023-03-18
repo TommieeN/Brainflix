@@ -28,46 +28,46 @@ function HomePage() {
       });
   }, []);
 
-  //GETTING SELECTED VIDEO DATA
-  const getVideo = useCallback((videoId) => {
+  // GETTING SELECTED VIDEO DATA
+  const getVideo = useCallback((videoId, scrollToTop) => {
     axios
       .get(`${URL}/videos/${videoId}`)
       .then((res) => {
         setSelectedVideo(res.data);
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
+        if (scrollToTop) {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-  
 
-  //FETCH VIDEO WITH ID
   useEffect(() => {
     let id = videoId || videoList[0]?.id;
     if (id) {
-      getVideo(id);
+      getVideo(id, true);
     }
-  }, [videoList, getVideo, videoId]);
+  }, [videoId, videoList, getVideo]);
 
-  //COMMENT SUBMIT & NEW COMMENT OBJECT
+  // COMMENT SUBMIT & NEW COMMENT OBJECT
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    const { comment } = event.target
+    const { comment } = event.target;
     const newComment = {
       name: "Nigel",
       comment: comment.value,
     };
 
-    //IF TEXT BOX IS EMPTY ALERT
+    // IF TEXT BOX IS EMPTY ALERT
     if (comment.value !== "") {
       axios
         .post(`${URL}/videos/${selectedVideo.id}/comments`, newComment)
         .then(() => {
-          getVideo(selectedVideo.id);
+          getVideo(selectedVideo.id, false);
         })
         .catch((error) => {
           console.log(error);
@@ -77,13 +77,13 @@ function HomePage() {
     }
   };
 
-  //DELETE FUNCTION
+  // DELETE FUNCTION
   const handleOnClickDelete = function (commentId) {
     axios
       .delete(`${URL}/videos/${selectedVideo.id}/comments/${commentId}`)
       .then((response) => {
         console.log("response: ", response);
-        getVideo(selectedVideo.id);
+        getVideo(selectedVideo.id, false);
       })
       .catch((error) => {
         console.log(error);

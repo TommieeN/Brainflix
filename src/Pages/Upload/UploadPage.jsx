@@ -8,7 +8,6 @@ const URL = "http://localhost:8080";
 function Upload() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  // const [image, setImage] = useState("");
 
   const handleChangeTitle = (event) => {
     setTitle(event.target.value);
@@ -42,7 +41,7 @@ function Upload() {
         handleOnClickHome();
       } catch (error) {
         console.log(error);
-        alert("Error uploading video");
+        alert("Title and description must be at least 5 characters long");
       }
     } else {
       alert("Please check your form.");

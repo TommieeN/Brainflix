@@ -25,7 +25,7 @@
 
 <h3> Installation </h3>
 
-<h3> Front end</h3>
+<h3> Front End</h3>
 
 <p> First install node modules in the command line:</p>
 
@@ -38,5 +38,18 @@ npm install
 ```sh
 npm start
 ```
+<h3>Back End</h3>
+
+<p> Install node modules just like front end:</p>
+
+```sh
+npm install
+```
+<p>Run the server using npm:</p>
+
+```sh
+npm run dev
+```
+
 
 

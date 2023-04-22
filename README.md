@@ -4,7 +4,7 @@
 ![Screen Recording 2023-04-14 at 11](https://user-images.githubusercontent.com/123577810/232135236-e66b984c-423a-4220-aa00-b8c2d811556e.gif)
 
 
- <h3>Front End <a href="https://github.com/TommieeN/Brainflix">Repo</a> </br></h3>
+ <h3>Front End</h3>
  <ul>
   <li>React</li>
   <li>React components</li>

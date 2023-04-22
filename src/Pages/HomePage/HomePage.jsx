@@ -8,7 +8,7 @@ import CommentForm from "../../components/CommentForm/CommentForm";
 import CommentList from "../../components/CommentList/CommentList";
 import VideoList from "../../components/VideoList/VideoList";
 
-const URL = "https://brainflixapi.onrender.com";
+const URL = "https://brainflixapi.onrender.com/";
 
 function HomePage() {
   const { videoId } = useParams();

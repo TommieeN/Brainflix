@@ -1,6 +1,6 @@
 import "./VideoItems.scss";
 import { Link } from "react-router-dom";
-const URL = "http://localhost:8080"
+const URL = "https://brainflixapi.onrender.com"
 
 function VideoItem({ title, channel, image, filtered, onClick }) {
   return (

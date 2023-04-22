@@ -3,7 +3,7 @@ import UploadLogo from "../../assets/Images/Upload-video-preview.jpg";
 import "./UploadPage.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const URL = "http://localhost:8080";
+const URL = "https://brainflixapi.onrender.com";
 
 function Upload() {
   const [title, setTitle] = useState("");

@@ -90,7 +90,7 @@ function HomePage() {
         console.log(error);
       });
   };
-
+console.log("videoList:", videoList)
   return (
     <>
       {selectedVideo && <MainVideo poster={selectedVideo.image} />}

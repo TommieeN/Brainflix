@@ -1,13 +1,22 @@
 import "./CommentItem.scss";
+import React from 'react';
 import { timeStampConverter } from "../../Utilities/TimeConverter";
 
-const CommentItem = function ({
+interface CommentItemProps {
+  name: string;
+  time: number;
+  comment: string;
+  videoId: string;
+  handleOnClickDelete: (videoId: string) => void;
+}
+
+const CommentItem: React.FC<CommentItemProps> = ({
   name,
   time,
   comment,
   videoId,
   handleOnClickDelete,
-}) {
+}) => {
   return (
     <li className="conversation__item">
       <button

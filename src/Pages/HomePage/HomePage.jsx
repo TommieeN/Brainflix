@@ -4,11 +4,11 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MainVideo from "../../components/MainVideo/MainVideo";
 import MainVideoInfo from "../../components/MainVideoInfo/MainVideoInfo";
-import CommentForm from "../../components/CommentForm/CommentForm";
+import CommentForm from "../../components/CommentForm/CommentForm.tsx";
 import CommentList from "../../components/CommentList/CommentList";
 import VideoList from "../../components/VideoList/VideoList";
 
-const URL = "http://localhost:8080";
+const URL = "https://brainflixapi.onrender.com";
 
 function HomePage() {
   const { videoId } = useParams();
@@ -90,7 +90,7 @@ function HomePage() {
         console.log(error);
       });
   };
-
+console.log("videoList:", videoList)
   return (
     <>
       {selectedVideo && <MainVideo poster={selectedVideo.image} />}

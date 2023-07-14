@@ -1,5 +1,5 @@
 import "./MainVideo.scss";
-const URL = "http://localhost:8080"
+const URL = "https://brainflixapi.onrender.com"
 const MainVideo = function ({ poster }) {
   return (
     <section>

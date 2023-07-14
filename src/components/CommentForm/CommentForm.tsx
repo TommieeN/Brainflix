@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import "./CommentForm.scss";
 import Avatar from "../../assets/Images/Mohan-muruge.jpg";
 
-function CommentForm({ commentNum, handleOnSubmit }) {
-  const [comment, setComment] = useState("");
+interface CommentFormProps {
+  commentNum: {comments: any[] };
+  onSubmit: (event: FormEvent<HTMLFormElement>) => void;
+}
+
+const CommentForm = ({ commentNum, onSubmit }: CommentFormProps) => {
+  const [comment, setComment] = useState<string>("");
 
   //PREVENT DEFAULT BEHAVIOUR AND CLEAR TEXT FIELD AFTER SUBMISSION
-  const handleSubmit = (event) => {
+  const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    handleOnSubmit(event);
+    onSubmit(event);
     setComment("");
   };
 
@@ -21,7 +26,7 @@ function CommentForm({ commentNum, handleOnSubmit }) {
       </div>
       <section className="conversation__wrapper">
         <img className="conversation__avatar" src={Avatar} alt="avatar" />
-        <form className="conversation__form" onSubmit={handleSubmit}>
+        <form className="conversation__form" onSubmit={handleFormSubmit}>
           <div className="conversation__title-box-container">
             <label className="conversation__title">join the conversation</label>
             <textarea
@@ -29,10 +34,10 @@ function CommentForm({ commentNum, handleOnSubmit }) {
               placeholder="Add a new comment"
               name="comment"
               id="comment"
-              cols="30"
-              rows="5"
+              cols={30}
+              rows={5}
               value={comment}
-              onChange={(e) => setComment(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setComment(e.target.value)}
             ></textarea>
           </div>
           <button className="conversation__button" type="submit">

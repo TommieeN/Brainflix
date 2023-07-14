@@ -1,5 +1,4 @@
 import "./CommentItem.scss";
-import React from 'react';
 import { timeStampConverter } from "../../Utilities/TimeConverter";
 
 interface CommentItemProps {

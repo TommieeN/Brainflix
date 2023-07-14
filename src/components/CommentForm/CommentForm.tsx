@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import "./CommentForm.scss";
 import Avatar from "../../assets/Images/Mohan-muruge.jpg";
 
@@ -7,7 +7,7 @@ interface CommentFormProps {
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
 }
 
-function CommentForm({ commentNum, onSubmit }: CommentFormProps) {
+const CommentForm = ({ commentNum, onSubmit }: CommentFormProps) => {
   const [comment, setComment] = useState<string>("");
 
   //PREVENT DEFAULT BEHAVIOUR AND CLEAR TEXT FIELD AFTER SUBMISSION

@@ -17,7 +17,7 @@ interface CommentListProps {
 const CommentList: React.FC<CommentListProps> = ({
   commentArr,
   handleOnClickDelete,
-}): JSX.Element => {
+}) => {
   return (
     <ul className="conversation__list">
       {commentArr &&

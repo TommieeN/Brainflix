@@ -3,7 +3,7 @@ import "./CommentForm.scss";
 import Avatar from "../../assets/Images/Mohan-muruge.jpg";
 
 interface CommentFormProps {
-  commentNum: {comments: any[] };
+  commentNum: {comments: string };
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
 }
 

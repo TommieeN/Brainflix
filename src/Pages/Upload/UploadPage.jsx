@@ -37,7 +37,6 @@ function Upload() {
           description,
           image: `${URL}/videos/images/image0.jpeg`,
         });
-        console.log(response.data);
         alert("Thank you for uploading!");
         handleOnClickHome();
       } catch (error) {

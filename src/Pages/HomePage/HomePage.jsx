@@ -83,14 +83,12 @@ function HomePage() {
     axios
       .delete(`${URL}/videos/${selectedVideo.id}/comments/${commentId}`)
       .then((response) => {
-        console.log("response: ", response);
         getVideo(selectedVideo.id, false);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-console.log("videoList:", videoList)
   return (
     <>
       {selectedVideo && <MainVideo poster={selectedVideo.image} />}

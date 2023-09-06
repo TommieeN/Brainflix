@@ -3,14 +3,14 @@ import "./CommentForm.scss";
 import Avatar from "../../assets/Images/Mohan-muruge.jpg";
 
 interface CommentFormProps {
-  commentNum: {comments: string };
+  commentNum: { comments: string };
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
 }
 
 const CommentForm = ({ commentNum, onSubmit }: CommentFormProps) => {
   const [comment, setComment] = useState<string>("");
 
-  //PREVENT DEFAULT BEHAVIOUR AND CLEAR TEXT FIELD AFTER SUBMISSION
+  //PREVENT DEFAULT BEHAVIOUR AND CLEAR TEXT FIELD AFTER COMMENT IS SUBMITTED
   const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSubmit(event);
@@ -37,7 +37,9 @@ const CommentForm = ({ commentNum, onSubmit }: CommentFormProps) => {
               cols={30}
               rows={5}
               value={comment}
-              onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setComment(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+                setComment(e.target.value)
+              }
             ></textarea>
           </div>
           <button className="conversation__button" type="submit">
@@ -47,6 +49,6 @@ const CommentForm = ({ commentNum, onSubmit }: CommentFormProps) => {
       </section>
     </>
   );
-}
+};
 
 export default CommentForm;

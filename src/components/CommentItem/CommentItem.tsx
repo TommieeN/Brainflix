@@ -1,5 +1,5 @@
 import "./CommentItem.scss";
-import { timeStampConverter } from "../../Utilities/TimeConverter";
+import { timeStampConverter } from "../../Utilities/TimeConverter"
 
 interface CommentItemProps {
   name: string;

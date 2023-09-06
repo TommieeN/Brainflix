@@ -1,7 +1,5 @@
 @use "./variables";
 
-
-
 @mixin tablet {
   @media (min-width: variables.$tablet-breakpoint) {
     @content;
@@ -32,7 +30,6 @@
   background-repeat: no-repeat;
   background-position: 5px center;
   border-radius: 0.3rem;
-  
 }
 
 @mixin blue-button {

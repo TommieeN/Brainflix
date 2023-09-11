@@ -22,7 +22,6 @@ interface Video {
   comments: Comment[];
 }
 
-
 interface Comment {
   id: string;
   name: string;
@@ -117,7 +116,7 @@ const HomePage: React.FC = () => {
       <div className="app-container">
         <div className="app-wrapper">
           {selectedVideo && <MainVideoInfo activeVideo={selectedVideo} />}
-          {selectedVideo && (    
+          {selectedVideo && (
             <CommentForm
               commentNum={selectedVideo?.comments.length || 0}
               handleOnSubmit={handleOnSubmit}
@@ -138,6 +137,6 @@ const HomePage: React.FC = () => {
       </div>
     </>
   );
-}
+};
 
 export default HomePage;

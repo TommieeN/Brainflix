@@ -12,10 +12,16 @@ const URL = "https://brainflixapi.onrender.com";
 
 interface Video {
   id: string;
+  title: string;
+  channel: string;
+  timestamp: Date;
+  views: number;
+  likes: number;
+  description: string;
   image: string;
   comments: Comment[];
-  commentNum: { comments: string };
 }
+
 
 interface Comment {
   id: string;

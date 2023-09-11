@@ -1,6 +1,6 @@
 import "./HomePage.scss";
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, FormEvent } from "react";
 import { useParams } from "react-router-dom";
 import MainVideo from "../../components/MainVideo/MainVideo";
 import MainVideoInfo from "../../components/MainVideoInfo/MainVideoInfo";
@@ -10,15 +10,29 @@ import VideoList from "../../components/VideoList/VideoList";
 
 const URL = "https://brainflixapi.onrender.com";
 
-function HomePage() {
-  const { videoId } = useParams();
-  const [videoList, setVideoList] = useState([]);
-  const [selectedVideo, setSelectedVideo] = useState(null);
+interface Video {
+  id: string;
+  image: string;
+  comments: Comment[];
+  commentNum: { comments: string };
+}
+
+interface Comment {
+  id: string;
+  name: string;
+  comment: string;
+  timestamp: number;
+}
+
+const HomePage: React.FC = () => {
+  const { videoId } = useParams<{ videoId?: string }>();
+  const [videoList, setVideoList] = useState<Video[]>([]);
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
 
   //GET VIDEO DATA AND STORE IN VIDEOLIST STATE
   useEffect(() => {
     axios
-      .get(`${URL}/videos`)
+      .get<Video[]>(`${URL}/videos`)
       .then((response) => {
         const videoArr = response.data;
         setVideoList(videoArr);
@@ -29,9 +43,9 @@ function HomePage() {
   }, []);
 
   //GETTING SELECTED VIDEO DATA
-  const getVideo = useCallback((videoId, scrollToTop) => {
+  const getVideo = useCallback((videoId: string, scrollToTop: boolean) => {
     axios
-      .get(`${URL}/videos/${videoId}`)
+      .get<Video>(`${URL}/videos/${videoId}`)
       .then((res) => {
         setSelectedVideo(res.data);
         if (scrollToTop) {
@@ -48,27 +62,29 @@ function HomePage() {
 
   //FETCH VIDEO DATA ON MOUNT
   useEffect(() => {
-    let id = videoId || videoList[0]?.id;
+    const id = videoId || videoList[0]?.id;
     if (id) {
       getVideo(id, true);
     }
   }, [videoId, videoList, getVideo]);
 
   //COMMENT SUBMIT & NEW COMMENT OBJECT
-  const handleOnSubmit = (event) => {
+  const handleOnSubmit = (event: any) => {
     event.preventDefault();
-    const { comment } = event.target;
-    const newComment = {
+    const comment = (event.target as any).comment as HTMLInputElement;
+    const newComment: Comment = {
+      id: "",
       name: "Nigel",
       comment: comment.value,
+      timestamp: Date.now(),
     };
 
     //IF TEXT BOX IS EMPTY ALERT
-    if (comment.value !== "") {
+    if (comment.value.trim() !== "") {
       axios
-        .post(`${URL}/videos/${selectedVideo.id}/comments`, newComment)
+        .post(`${URL}/videos/${selectedVideo?.id}/comments`, newComment)
         .then(() => {
-          getVideo(selectedVideo.id, false);
+          getVideo(selectedVideo?.id || "", false);
         })
         .catch((error) => {
           console.log(error);
@@ -79,11 +95,11 @@ function HomePage() {
   };
 
   //DELETE FUNCTION
-  const handleOnClickDelete = function (commentId) {
+  const handleOnClickDelete = (commentId: string) => {
     axios
-      .delete(`${URL}/videos/${selectedVideo.id}/comments/${commentId}`)
-      .then((response) => {
-        getVideo(selectedVideo.id, false);
+      .delete(`${URL}/videos/${selectedVideo?.id}/comments/${commentId}`)
+      .then(() => {
+        getVideo(selectedVideo?.id || "", false);
       })
       .catch((error) => {
         console.log(error);
@@ -95,9 +111,9 @@ function HomePage() {
       <div className="app-container">
         <div className="app-wrapper">
           {selectedVideo && <MainVideoInfo activeVideo={selectedVideo} />}
-          {selectedVideo && (
+          {selectedVideo && (    
             <CommentForm
-              commentNum={selectedVideo}
+              commentNum={selectedVideo?.comments.length || 0}
               handleOnSubmit={handleOnSubmit}
             />
           )}

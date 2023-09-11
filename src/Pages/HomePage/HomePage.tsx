@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MainVideo from "../../components/MainVideo/MainVideo";
 import MainVideoInfo from "../../components/MainVideoInfo/MainVideoInfo";
-import CommentForm from "../../components/CommentForm/CommentForm.tsx";
+import CommentForm from "../../components/CommentForm/CommentForm";
 import CommentList from "../../components/CommentList/CommentList";
 import VideoList from "../../components/VideoList/VideoList";
 

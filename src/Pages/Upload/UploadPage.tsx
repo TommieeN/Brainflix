@@ -1,32 +1,28 @@
 import axios from "axios";
 import UploadLogo from "../../assets/Images/Upload-video-preview.jpg";
 import "./UploadPage.scss";
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 const URL = "https://brainflixapi.onrender.com";
 
-function Upload() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+const Upload: React.FC = () => {
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
 
-  // UPDATE DESCRIPTION & TITLE STATE VARIABLE
-  const handleChangeTitle = (event) => {
+  const handleChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
   };
-  const handleChangeDescription = (event) => {
+  const handleChangeDescription = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setDescription(event.target.value);
   };
 
-  //FORM VALIDATION
+  //FORM VALIDATION TRIM WHITE SPACE
   const isFormValid = () => {
-    if (title === "" || description === "") {
-      return false;
-    }
-    return true;
+    return title.trim().length > 0 && description.trim().length > 0;
   };
 
   //PREVENT DEFAULT BEHAVIOUR AFTER SUBMIT
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
     //ALERT BASED ON VALIDATION
@@ -89,8 +85,8 @@ function Upload() {
                     name="description"
                     onChange={handleChangeDescription}
                     value={description}
-                    cols="30"
-                    rows="5"
+                    cols={30}
+                    rows={5}
                   ></textarea>
                 </div>
               </div>
@@ -116,6 +112,6 @@ function Upload() {
       </div>
     </div>
   );
-}
+};
 
 export default Upload;

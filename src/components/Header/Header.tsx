@@ -3,7 +3,7 @@ import "./Header.scss";
 import Logo from "../../assets/Logo/BrainFlix-logo.svg";
 import Avatar from "../../assets/Images/Mohan-muruge.jpg";
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="header__container">

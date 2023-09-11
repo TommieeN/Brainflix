@@ -12,13 +12,6 @@ interface CommentFormProps {
 const CommentForm: React.FC<CommentFormProps> = ({ commentNum, handleOnSubmit }) => {
   const [comment, setComment] = useState<string>("");
 
-  // PREVENT DEFAULT BEHAVIOR AND CLEAR TEXT FIELD AFTER COMMENT IS SUBMITTED
-  // const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   onSubmit(event);
-  //   setComment("");
-  // };
-
   return (
     <>
       <div className="conversation">

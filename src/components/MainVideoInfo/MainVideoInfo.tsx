@@ -1,6 +1,20 @@
 import "./MainVideoInfo.scss";
 import { timeStampConverter } from "../../Utilities/TimeConverter";
-const MainVideoInfo = function ({ activeVideo }) {
+
+interface MainVideoInfoProps {
+  activeVideo: Video;
+}
+
+interface Video {
+  title: string;
+  channel: string;
+  timestamp: Date;
+  views: number;
+  likes: number;
+  description: string;
+}
+
+const MainVideoInfo: React.FC<MainVideoInfoProps> = ({ activeVideo }) => {
   return (
     <>
       <div className="main-info">

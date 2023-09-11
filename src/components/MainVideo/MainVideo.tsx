@@ -1,6 +1,11 @@
 import "./MainVideo.scss";
 const URL = "https://brainflixapi.onrender.com"
-const MainVideo = function ({ poster }) {
+
+interface MainVideoProps {
+  poster: string;
+}
+
+const MainVideo: React.FC<MainVideoProps> = ({ poster }) => {
   return (
     <section>
       <video className="main-video" poster={URL + poster} controls></video>

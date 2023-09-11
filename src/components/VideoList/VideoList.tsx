@@ -1,7 +1,19 @@
 import "./VideoList.scss";
 import VideoItems from "../VideoItems/VideoItems";
 
-function VideoList({ videoData, id }) {
+interface Video {
+  id: string;
+  title: string;
+  channel: string;
+  image: string;
+}
+
+interface VideoListProps {
+  videoData: Video[];
+  id: string;
+}
+
+const VideoList: React.FC<VideoListProps> = ({ videoData, id }) => {
   return (
     <section className="video">
       <div className="video__container">
@@ -13,11 +25,9 @@ function VideoList({ videoData, id }) {
                 <VideoItems
                   key={video.id}
                   filtered={video}
-                  id={video.id}
                   title={video.title}
                   channel={video.channel}
                   image={video.image}
-                  // onClick={onClick}
                 />
             ))}
         </ul>
